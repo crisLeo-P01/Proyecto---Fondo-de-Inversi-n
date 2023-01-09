@@ -40,6 +40,21 @@ p, span {
   margin-left: 15px;
   font-size: 22px;
 }
+.github {
+  background: #333;
+  padding: 10px 0;
+  text-align: center;
+  font-family: 'Poppins';
+  font-weight: 500;
+  color: #FFF;
+  width: 175px;
+  border-radius: 8px;
+}
+.github a {
+  color: #4cdbc1;
+  text-decoration: none;
+}
+
 .section-main {
   padding-bottom: 120px;
 }
@@ -124,21 +139,4 @@ p, span {
 }
 .contain-form, .contain-datos-inversion {
   font-family: 'Poppins';
-}
-.github {
-  position: absolute;
-  bottom: 60px;
-  right: 50px;
-  background: #333;
-  padding: 15px 0;
-  text-align: center;
-  font-family: 'Poppins';
-  font-weight: 500;
-  color: #FFF;
-  width: 175px;
-  border-radius: 8px;
-}
-.github a {
-  color: #4cdbc1;
-  text-decoration: none;
 }

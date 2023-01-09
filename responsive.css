@@ -5,12 +5,13 @@
   .navbar span {
     font-size: 14px;
   }
-  .contain-form {
+  .contain-form,
+  .contain-datos-inversion {
     padding: 15px;
   }
 }
-@media screen and (max-width: 420px) {
-  .navbar span {
+@media screen and (max-width: 470px) {
+  .navbar .github {
     display: none;
   }
 }
