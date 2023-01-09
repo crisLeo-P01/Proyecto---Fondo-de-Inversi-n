@@ -50,7 +50,8 @@ p, span {
   height: 320px;
   border-radius: 15px;
 }
-.contain-form {
+.contain-form,
+.contain-datos-inversion {
   max-width: 100%;
   width: 800px;
   background-color: #FFF;
@@ -113,4 +114,19 @@ p, span {
 }
 .contain-form form .btn-group .btnBorrar:hover {
   background: #943a3a;
+}
+.contain-form, .contain-datos-inversion {
+  font-family: 'Poppins';
+}
+footer {
+  background: #333;
+  padding: 25px 0;
+  text-align: center;
+  font-family: 'Poppins';
+  font-weight: 500;
+  color: #FFF;
+}
+footer a {
+  color: #4cdbc1;
+  text-decoration: none;
 }
