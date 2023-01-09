@@ -38,7 +38,8 @@ p, span {
 }
 .contain-main {
   margin: auto;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   padding-top: 30px;
 }
 .img-background {
@@ -46,7 +47,6 @@ p, span {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;
-  width: 800px;
   height: 320px;
   border-radius: 15px;
 }
