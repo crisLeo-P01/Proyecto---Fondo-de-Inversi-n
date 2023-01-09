@@ -11,7 +11,7 @@ const formInValid = {
 };
 
 inputIngresos.addEventListener('change', (e) => {
- if( e.target.value < 1500 ) {
+ if( e.target.value < 500 ) {
    cartelWarning.classList.remove('d-none');
    cartelWarning.textContent = 'Tu inversion debe superar los $500(dólares)'
   } else if( e.target.value > 10000 ) {
