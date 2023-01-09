@@ -12,13 +12,10 @@ const interesesGanados = document.querySelector('#intereses-ganados');
 const montoTotal = document.querySelector('#monto-total');
 const tablaResultado = document.querySelector('#contain-datos-inversion');
 
-const formInValid = {
-  inputIngresos: false,
-  inputDias: false
-};
-
+let inputDatosIngresos;
+// INPUT INGRESOS
 inputIngresos.addEventListener('change', (e) => {
-  const inputDatosIngresos = e.target.value;
+  inputDatosIngresos = e.target.value;
   console.log(inputDatosIngresos);
   if( inputDatosIngresos < 500 ) {
     cartelWarning.classList.remove('d-none');
@@ -32,9 +29,10 @@ inputIngresos.addEventListener('change', (e) => {
   }
 })
 
-
+let inputDatosDias;
+// INPUT DIAS
 inputDias.addEventListener('change', (e) => {
-  const inputDatosDias = e.target.value;
+  inputDatosDias = e.target.value;
   console.log(inputDatosDias);
   if( inputDatosDias < 30 ) {
     cartelWarning.classList.remove('d-none');
@@ -45,14 +43,25 @@ inputDias.addEventListener('change', (e) => {
   } else {
     cartelWarning.classList.add('d-none');
     plazoDias.textContent = 'Plazo: ' + inputDatosDias + ' días.';
+
+    // LOGICA DE RESULTADO
+    const interesDiario = 0.2083;
+    let datoDiasInteres = inputDatosDias * interesDiario;
+    let resultadoInteres = (inputDatosIngresos * datoDiasInteres) / 100;
+    interesesGanados.textContent = 'Intereses ganados: $' + resultadoInteres.toFixed(2);
+    let capitalMasInteres = parseFloat(inputDatosIngresos) + parseFloat(resultadoInteres);
+    montoTotal.textContent =  'Monto Total: $' + capitalMasInteres.toFixed(2);
   }
 })
 
+// FORMULARIO BUTTON ENVIAR
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   tablaResultado.classList.remove('d-none');
 })
 
+
+// BUTTON BORRAR 
 btnBorrar.addEventListener('click', () => {
   form.reset();
   cartelWarning.classList.add('d-none');

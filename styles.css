@@ -11,6 +11,10 @@ p, span {
 .d-none {
   display: none;
 }
+.verde {
+  color: #32c904;
+  font-weight: 600;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
