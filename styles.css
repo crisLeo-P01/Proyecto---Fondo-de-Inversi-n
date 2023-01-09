@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background: #dfdfdf;
+}
 p, span {
   font-family: 'Poppins';
 }
@@ -18,8 +21,9 @@ p, span {
 .navbar {
   display: flex;
   justify-content: space-between;
+  background: #FFF;
   align-items: center;
-  height: 8vh;
+  height: 60px;
   box-shadow: 0 1px 15px rgb(0 0 0 / 50%);
   padding: 10px 30px;
 }
@@ -37,8 +41,7 @@ p, span {
   font-size: 22px;
 }
 .section-main {
-  height: 92vh;
-  background: #DDD;
+  padding-bottom: 120px;
 }
 .contain-main {
   margin: auto;
@@ -122,15 +125,20 @@ p, span {
 .contain-form, .contain-datos-inversion {
   font-family: 'Poppins';
 }
-footer {
+.github {
+  position: absolute;
+  bottom: 60px;
+  right: 50px;
   background: #333;
-  padding: 25px 0;
+  padding: 15px 0;
   text-align: center;
   font-family: 'Poppins';
   font-weight: 500;
   color: #FFF;
+  width: 175px;
+  border-radius: 8px;
 }
-footer a {
+.github a {
   color: #4cdbc1;
   text-decoration: none;
 }
