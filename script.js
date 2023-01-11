@@ -12,14 +12,20 @@ const interesesGanados = document.querySelector('#intereses-ganados');
 const montoTotal = document.querySelector('#monto-total');
 const tablaResultado = document.querySelector('#contain-datos-inversion');
 
+const formInValid = {
+  inputIngresos: false,
+  inputDias: false,
+};
+
 let inputDatosIngresos;
 // INPUT INGRESOS
 inputIngresos.addEventListener('change', (e) => {
   inputDatosIngresos = e.target.value;
   console.log(inputDatosIngresos);
+
   if( inputDatosIngresos < 500 ) {
     cartelWarning.classList.remove('d-none');
-    cartelWarning.textContent = 'Tu inversion debe superar los $500(dólares)'
+    cartelWarning.textContent = 'Tu inversion debe superar los $500(dólares)';
   } else if( inputDatosIngresos > 10000 ) {
     cartelWarning.classList.remove('d-none');
     cartelWarning.textContent = 'Tu inversion debe no debe superar los $10.000(dólares)'
@@ -34,6 +40,7 @@ let inputDatosDias;
 inputDias.addEventListener('change', (e) => {
   inputDatosDias = e.target.value;
   console.log(inputDatosDias);
+
   if( inputDatosDias < 30 ) {
     cartelWarning.classList.remove('d-none');
     cartelWarning.textContent = 'La cantidad de días mínima debe ser de 30 días'
@@ -53,6 +60,14 @@ inputDias.addEventListener('change', (e) => {
     montoTotal.textContent =  'Monto Total: $' + capitalMasInteres.toFixed(2);
   }
 })
+
+const validateForm = () => {
+  const formValues = Object.values(formInValid);
+
+  const valid = formValues.findIndex((value) => value === false);
+  if (valid === -1) form.submit(); 
+  else alert('Form Invalid');
+};
 
 // FORMULARIO BUTTON ENVIAR
 form.addEventListener('submit', (e) => {
