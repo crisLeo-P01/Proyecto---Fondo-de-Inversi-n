@@ -12,27 +12,21 @@ const interesesGanados = document.querySelector('#intereses-ganados');
 const montoTotal = document.querySelector('#monto-total');
 const tablaResultado = document.querySelector('#contain-datos-inversion');
 
-const formInValid = {
-  inputIngresos: false,
-  inputDias: false,
-};
-
 let inputDatosIngresos;
 // INPUT INGRESOS
 inputIngresos.addEventListener('change', (e) => {
   inputDatosIngresos = e.target.value;
   console.log(inputDatosIngresos);
 
-  if( inputDatosIngresos < 500 || inputDatosIngresos > 10000) {
-    formInValid.inputIngresos = false;
-    console.log(formInValid.inputIngresos);
+  if( inputDatosIngresos < 500 ) {
     cartelWarning.classList.remove('d-none');
-    cartelWarning.textContent = 'Tu inversion debe superar los $500 y un máximo de $10.000';
+    cartelWarning.textContent = 'Tu inversion debe superar los $500(dólares)';
+  } else if( inputDatosIngresos > 10000 ) {
+    cartelWarning.classList.remove('d-none');
+    cartelWarning.textContent = 'Tu inversion debe no debe superar los $10.000(dólares)'
   } else {
     cartelWarning.classList.add('d-none');
     capital.textContent = 'Capital: $' + inputDatosIngresos;
-    formInValid.inputIngresos = true;
-    console.log(formInValid.inputIngresos);
   }
 })
 
@@ -42,25 +36,16 @@ inputDias.addEventListener('change', (e) => {
   inputDatosDias = e.target.value;
   console.log(inputDatosDias);
 
-  if( inputDatosDias < 30 || inputDatosDias > 365) {
+  if( inputDatosDias < 30 ) {
     cartelWarning.classList.remove('d-none');
-    cartelWarning.textContent = 'La cantidad de días mínima debe ser de 30 días y un máximo de 365 días'
-    formInValid.inputDias = false;
-    console.log(formInValid.inputDias);
+    cartelWarning.textContent = 'La cantidad de días mínima debe ser de 30 días'
+  } else if( inputDatosDias > 365 ) {
+    cartelWarning.classList.remove('d-none');
+    cartelWarning.textContent = 'La cantidad de días máxima debe ser de 365 días'
   } else {
     cartelWarning.classList.add('d-none');
     plazoDias.textContent = 'Plazo: ' + inputDatosDias + ' días.';
-    formInValid.inputDias = true;
-    console.log(formInValid.inputDias);
 
-    if(formInValid.inputIngresos && formInValid.inputDias) {
-      btnEnviar.removeAttribute('disabled')
-      console.log('hola');
-    } else {
-      btnEnviar.setAttribute('disabled', true);
-      console.log('hola 2');
-    } 
-    
     // LOGICA DE RESULTADO
     const interesDiario = 0.2083;
     let datoDiasInteres = inputDatosDias * interesDiario;
@@ -71,19 +56,18 @@ inputDias.addEventListener('change', (e) => {
   }
 })
 
-
 // FORMULARIO BUTTON ENVIAR
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   tablaResultado.classList.remove('d-none');
 })
 
+
 // BUTTON BORRAR 
 btnBorrar.addEventListener('click', () => {
   form.reset();
   cartelWarning.classList.add('d-none');
   tablaResultado.classList.add('d-none');
-  btnEnviar.setAttribute('disabled', true);
 })
 
 
